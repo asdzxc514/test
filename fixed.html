@@ -94,8 +94,7 @@
         document.querySelector('.chat-body').style.bottom = ( document.querySelector('.chat-foot').offsetHeight ) + "px";
     }
 
-
-    $(window).resize(function() {
+    window.addEventListener("optimizedResize", function() {
         chatBodyResize();
     });
 
