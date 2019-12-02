@@ -42,7 +42,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: gray;
+        background: greenyellow;
         color: #fff;
         z-index: 5;
     }
@@ -63,7 +63,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: gray;
+        background: greenyellow;
         z-index: 5;
     }
 
@@ -125,6 +125,7 @@
                 document.body.classList.add('keyboard');
                 
                 window.innerHeight = window.innerHeight - 250;
+                chatWrap.style.height = "100%";
                 chatWrap.style.overflow = "hidden";
 
                 setTimeout(function () {
