@@ -23,7 +23,8 @@
 
     .chat-head {height: 50px; line-height: 50px; vertical-align: middle; background: #eee; z-index: 5;}
     .chat-body { height: auto; padding: 15px 0; background: #fff7f7; overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 4; }
-    .chat-foot {min-height: 50px; line-height: 50px; vertical-align: middle; background: rgb(53, 49, 49);}
+    /* .chat-foot {min-height: 50px; line-height: 50px; vertical-align: middle; background: rgb(53, 49, 49);} */
+    .chat-foot { padding: 14px 10px; background: rgb(53, 49, 49);}
 
     
 
@@ -57,7 +58,17 @@
     var chatBody = document.querySelector('.chat-body');
     var chatFoot = document.querySelector('.chat-foot');
 
-    chatBodyResize();
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        chatBodyResize();
+
+    });
+
+    window.addEventListener("optimizedResize", function() {
+        chatBodyResize();
+    });
+
 
     // textarea 높이 조절
     function textareaHeight(obj) {
@@ -68,16 +79,14 @@
             chatBodyResize();
         }, 0);
 
-    }    
-    
-
-    function chatBodyResize() {
-        chatBody.style.height = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) + "px";
     }
 
-    window.addEventListener("optimizedResize", function() {
-        chatBodyResize();
-    });
+    function chatBodyResize() {
+        chatBody.style.height = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) + "px";        
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    
 
 </script>
 </body>
