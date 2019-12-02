@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>FIXED</title>
     <link rel="stylesheet" href="./style.css">
@@ -65,8 +65,8 @@
 
     document.addEventListener("DOMContentLoaded", function(){
 
+        chatBody.scrollTop = chatBody.scrollHeight;
         chatBodyResize();
-
 
         var g_resize_timer = null;
 
@@ -95,8 +95,7 @@
         chatHead.childNodes[1].innerText = window.innerHeight;
 
         chatWrap.style.height = window.innerHeight;
-        chatBody.style.height = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) + "px";        
-        chatBody.scrollTop = chatBody.scrollHeight;
+        chatBody.style.height = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) + "px";                
     }
 
     
