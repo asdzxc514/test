@@ -125,8 +125,8 @@
                 textareaEl.addEventListener('focus', function (e) {
                     document.body.classList.add('keyboard');
                     window.innerHeight = window.innerHeight - 250;
-                    setTimeout(function () {
-                        window.scrollTo(0, 0);
+                    window.scrollTo(0, 0);
+                    setTimeout(function () {                        
                         chatBody.scrollTop = chatBody.scrollHeight;
                     }, 200);
                 });
