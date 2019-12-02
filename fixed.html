@@ -11,7 +11,9 @@
 </head>
 
 <style>
-    body {
+    /* html, body { position: fixed; overflow: hidden; } */
+
+    body {        
         background: #fff;
         font-size: 14px;
     }
@@ -118,16 +120,11 @@
     </div>
 
     <script>
+        function preventDefault(event){
+            event.preventDefault();
+        };
 
-    
-
-        // add listener to disable scroll
-        document.body.addEventListener('scroll touchmove mousewheel', noScroll);
-
-        function noScroll(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
+        document.addEventListener("touchmove", preventDefault, false);
 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -138,6 +135,7 @@
                     document.body.classList.add('keyboard');
                     setTimeout(function () {
                         window.scrollTo(0, 0);
+                        chatBody.scrollTop = chatBody.scrollHeight;
                     }, 200);
                 });
 
