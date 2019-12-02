@@ -48,7 +48,8 @@
         bottom: 50px;
         padding: 15px 0;
         background: #fff7f7;
-        overflow-y: auto;
+        overflow-y: auto;        
+        transition: all .3s;
         -webkit-overflow-scrolling: touch;
         z-index: 4;
     }
@@ -121,10 +122,11 @@
     
 
         // add listener to disable scroll
-        window.addEventListener('scroll', noScroll);
+        document.body.addEventListener('scroll touchmove mousewheel', noScroll);
 
-        function noScroll() {
-            window.scrollTo(0, 0);
+        function noScroll(e) {
+            e.preventDefault();
+            e.stopPropagation();
         }
 
 
