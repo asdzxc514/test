@@ -117,6 +117,17 @@
     </div>
 
     <script>
+
+    
+
+        // add listener to disable scroll
+        window.addEventListener('scroll', noScroll);
+
+        function noScroll() {
+            window.scrollTo(0, 0);
+        }
+
+
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
             var textareaEl = document.querySelector('textarea');
