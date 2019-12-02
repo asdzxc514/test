@@ -42,7 +42,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: black;
+        background: red;
         color: #fff;
         z-index: 5;
     }
@@ -63,7 +63,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: black;
+        background: red;
         z-index: 5;
     }
 
@@ -122,23 +122,20 @@
             var textareaEl = document.querySelector('textarea');
 
             textareaEl.addEventListener('focus', function (e) {
-                document.body.classList.add('keyboard');
+                
+                window.scrollTo(0, 0);
+                document.body.classList.add('keyboard');                
                 
                 window.innerHeight = window.innerHeight - 250;
-                chatWrap.style.height = window.innerHeight;
-                chatWrap.style.overflow = "hidden";
 
                 setTimeout(function () {
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                    window.scrollTo(0, 0);
+                    chatBody.scrollTop = chatBody.scrollHeight;                    
                 }, 200);
             });
 
             textareaEl.addEventListener('blur', function (e) {
                 document.body.classList.remove('keyboard');
                 window.innerHeight = window.innerHeight + 250;
-                chatWrap.style.height = window.innerHeight;                
-                chatWrap.style.overflow = "auto";
             });
         });
 
