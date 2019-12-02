@@ -39,7 +39,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: #35ffff;
+        background: #000;
         color: #fff;
         z-index: 5;
     }
@@ -60,7 +60,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: #35ffff;
+        background: #000;
         z-index: 5;
     }
 
@@ -121,12 +121,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
             var textareaEl = document.querySelector('textarea');
+
             textareaEl.addEventListener('focus', function (e) {
                 document.body.classList.add('keyboard');
-                window.innerHeight = window.innerHeight - 250;
-                window.scrollTo(0, 0);
-                setTimeout(function () {                        
+                window.innerHeight = window.innerHeight - 250;                
+                setTimeout(function () {
                     chatBody.scrollTop = chatBody.scrollHeight;
+                    window.scrollTo(0, 0);
                 }, 200);
             });
 
