@@ -10,7 +10,7 @@
 </head>
 
 <style>
-    html, body, .chat-wrap { height: 100%; overflow: hidden; }
+    html, body { height: 100%; overflow: hidden; }
 
     body {        
         background: #fff;
@@ -75,7 +75,6 @@
         font-size: 16px;
     }
 
-
     .safari.keyboard .chat-wrap {
         bottom: 250px;
     }
@@ -125,6 +124,7 @@
             if (textareaEl) {
                 textareaEl.addEventListener('focus', function (e) {
                     document.body.classList.add('keyboard');
+                    window.innerHeight = window.innerHeight - 250;
                     setTimeout(function () {
                         window.scrollTo(0, 0);
                         chatBody.scrollTop = chatBody.scrollHeight;
@@ -133,6 +133,7 @@
 
                 textareaEl.addEventListener('blur', function (e) {
                     document.body.classList.remove('keyboard');
+                    window.innerHeight = window.innerHeight + 250;
                 });
             }
         });
