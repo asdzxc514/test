@@ -42,7 +42,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: black;
+        background: red;
         color: #fff;
         z-index: 5;
     }
@@ -63,7 +63,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: black;
+        background: red;
         z-index: 5;
     }
 
@@ -198,7 +198,7 @@
         }
 
         function chatBodyResize() {
-            chatHead.childNodes[1].innerText = window.innerHeight;
+            chatHead.childNodes[1].innerText = window.innerHeight+ ", " +window.outerHeight+ ", " +screen.height;
 
             chatWrap.style.height = window.innerHeight;
 
