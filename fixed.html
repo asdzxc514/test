@@ -39,7 +39,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: #35a2ff;
+        background: #35ffff;
         color: #fff;
         z-index: 5;
     }
@@ -60,7 +60,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: #35a2ff;
+        background: #35ffff;
         z-index: 5;
     }
 
@@ -114,28 +114,26 @@
     </div>
 
     <script>
-        document.ontouchmove = function(event){
-            event.preventDefault();
-        }
+        // document.ontouchmove = function(event){
+        //     event.preventDefault();
+        // }
 
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
             var textareaEl = document.querySelector('textarea');
-            if (textareaEl) {
-                textareaEl.addEventListener('focus', function (e) {
-                    document.body.classList.add('keyboard');
-                    window.innerHeight = window.innerHeight - 250;
-                    window.scrollTo(0, 0);
-                    setTimeout(function () {                        
-                        chatBody.scrollTop = chatBody.scrollHeight;
-                    }, 200);
-                });
+            textareaEl.addEventListener('focus', function (e) {
+                document.body.classList.add('keyboard');
+                window.innerHeight = window.innerHeight - 250;
+                window.scrollTo(0, 0);
+                setTimeout(function () {                        
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 200);
+            });
 
-                textareaEl.addEventListener('blur', function (e) {
-                    document.body.classList.remove('keyboard');
-                    window.innerHeight = window.innerHeight + 250;
-                });
-            }
+            textareaEl.addEventListener('blur', function (e) {
+                document.body.classList.remove('keyboard');
+                window.innerHeight = window.innerHeight + 250;
+            });
         });
 
         function setPlatformInfo() {
