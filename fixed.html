@@ -66,6 +66,12 @@
 
         chatBodyResize();
 
+
+        var g_resize_timer = null;
+
+        clearInterval(g_resize_timer);
+        g_resize_timer = setInterval(chatBodyResize, 300);
+
     });
 
     window.addEventListener("optimizedResize", function() {
