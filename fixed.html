@@ -40,7 +40,7 @@
     <div class="chat-wrap">
         <div>
 
-            <div class="chat-head">상단</div>
+            <div class="chat-head">상단 <span></span></div>
             <div class="chat-body">
                 sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text 
                 sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text 
@@ -85,6 +85,7 @@
     }
 
     function chatBodyResize() {
+        chatHead.childNodes[1].innerText = window.innerHeight;
 
         chatWrap.style.height = window.innerHeight;
         chatBody.style.height = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) + "px";        
