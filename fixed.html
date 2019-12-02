@@ -55,7 +55,7 @@
     var chatFoot = document.querySelector('.chat-foot');
 
 
-    document.addEventListener("DOMContentLoaded", function(){
+    window.onload = function(){
 
         chatBodyResize();
         chatBody.scrollTop = chatBody.scrollHeight;
@@ -65,15 +65,16 @@
         clearInterval(g_resize_timer);
         g_resize_timer = setInterval(chatBodyResize, 300);
 
-    });
+    };
 
-    
 
-    window.addEventListener("optimizedResize", function() {
+    window.onresize = function(){
+        chatWrap.style.height = window.innerHeight + 'px';
+
         chatBodyResize();
         chatBody.scrollTop = chatBody.scrollHeight;
-    });
-
+    };
+    
 
 
 
