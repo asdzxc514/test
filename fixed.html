@@ -12,27 +12,19 @@
 
 <style>
     body { background: #fff; font-size: 14px; }
-    /* .chat-wrap { position: relative; height: 100vh; }    
-    .chat-wrap > div { position: absolute; top: 0; left: 0; right: 0; bottom: 0; } */
+    .chat-wrap { position: relative; height: 100vh; }    
+    .chat-wrap > div { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
     .chat-wrap { position: relative; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0) }    
     .chat-wrap > div { /*position: absolute; top: 0; left: 0; right: 0; bottom: 0; */ overflow: hidden; }
     .chat-wrap > div div { /*position: absolute; left: 0; */ width: 100%; padding-left: 10px; padding-right: 10px;}
 
-    /* .chat-head { top: 0; height: 50px; line-height: 50px; vertical-align: middle; background: #eee; z-index: 5; }
+    .chat-head { top: 0; height: 50px; line-height: 50px; vertical-align: middle; background: #eee; z-index: 5; }
     .chat-body { top: 50px; bottom: 50px; padding: 15px 0; background: #fff7f7; overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 4; }
-    .chat-foot { bottom: 0; min-height: 50px; line-height: 50px; vertical-align: middle; background: rgb(53, 49, 49); z-index: 5; } */
+    .chat-foot { bottom: 0; min-height: 50px; line-height: 50px; vertical-align: middle; background: rgb(53, 49, 49); z-index: 5; }
     .chat-foot textarea { width: 100%; height: 20px; min-height: 20px; max-height: 100px; background: #fff; vertical-align: middle; font-family: sans-serif, "맑은 고딕"; font-size: 16px; }
 
 
-    .chat-head { height: 50px; line-height: 50px; vertical-align: middle; text-align: center; background: #484848; color: #fff; z-index: 5;}
-    .chat-body { height: auto; padding: 15px 0; background: #fff7f7; overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 4; }
-    /* .chat-foot {min-height: 50px; line-height: 50px; vertical-align: middle; background: rgb(53, 49, 49);} */
-    .chat-foot { padding: 14px 10px; background: rgb(53, 49, 49);}
-
-    
-
-
-    .safari.keyboard .app-container { bottom: 270px; }
+    /* .safari.keyboard .app-container { bottom: 270px; } */
 
 </style>
 
@@ -65,8 +57,8 @@
 
     document.addEventListener("DOMContentLoaded", function(){
 
-        chatBody.scrollTop = chatBody.scrollHeight;
         chatBodyResize();
+        chatBody.scrollTop = chatBody.scrollHeight;
 
         var g_resize_timer = null;
 
@@ -75,9 +67,14 @@
 
     });
 
+    
+
     window.addEventListener("optimizedResize", function() {
         chatBodyResize();
+        chatBody.scrollTop = chatBody.scrollHeight;
     });
+
+
 
 
     // textarea 높이 조절
