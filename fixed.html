@@ -23,6 +23,9 @@
         left: 0;
         right: 0;
         bottom: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 
     .chat-head, .chat-body, .chat-foot {
@@ -114,17 +117,6 @@
     </div>
 
     <script>
-
-        window.addEventListener('scroll', noScroll);
-
-        function noScroll() {
-            window.scrollTo(0, 0);
-        }
-        
-        // document.ontouchmove = function(event){
-        //     event.preventDefault();
-        // }
-
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
             var textareaEl = document.querySelector('textarea');
@@ -166,6 +158,12 @@
 
 
 
+        // window.addEventListener('scroll', noScroll);
+
+        // function noScroll() {
+        //     window.scrollTo(0, 0);
+        // }
+
 
         window.onload = function () {
 
@@ -204,15 +202,7 @@
 
             chatWrap.style.height = window.innerHeight;
 
-            // textareaEl.addEventListener("focus", function () {
-            //     chatBody.style.bottom = document.body.offsetHeight - (chatHead.offsetHeight + chatFoot
-            //         .offsetHeight) - 250 + "px";
-            // });
-
-            // textareaEl.addEventListener("blur", function () {
-            //     chatBody.style.bottom = document.body.offsetHeight - (chatHead.offsetHeight + chatFoot
-            //         .offsetHeight) + "px";
-            // });
+            chatBody.style.bottom = chatFoot.offsetHeight + "px";
         }
     </script>
 </body>
