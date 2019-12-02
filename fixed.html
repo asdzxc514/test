@@ -18,13 +18,12 @@
     }
 
     .chat-wrap {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        -webkit-transform: translate3d(0, 0, 0);
-        -o-transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); 
         transform: translate3d(0, 0, 0);
     }
 
@@ -42,7 +41,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: gray;
+        background: orange;
         color: #fff;
         z-index: 5;
     }
@@ -122,12 +121,6 @@
             var textareaEl = document.querySelector('textarea');
 
             textareaEl.addEventListener('focus', function (e) {
-                
-                window.addEventListener('scroll', function(e){ 
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                });
 
                 document.body.classList.add('keyboard');                
                 
@@ -143,6 +136,14 @@
                 window.innerHeight = window.innerHeight + 250;
             });
         });
+
+        if (document.body.classList == 'keyborad') {
+            window.addEventListener('scroll', function(e){ 
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+        }
 
         function setPlatformInfo() {
             var ua = navigator.userAgent.toLowerCase();
