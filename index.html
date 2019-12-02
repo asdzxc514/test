@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>클래스 신청하기</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="inner">
+
+    <div class="propose_wrapper">
+      <form action="" name="form1">
+        <div class="form_box">
+          <label class="sub_title">ecmascript</label>
+          <p class="main_title">클래스를 대표할 수 있는 제목을 추가해주세요.</p>
+          <div class="toggle_area 111">
+            <div class="info_area">
+              <div class="input_box">
+                <input type="text" name="textForm" onkeyup="alll(this)" autocomplete="off" value="" maxlength="25">
+                <p><span class="textLength">0</span> / 25</p>
+              </div>
+            </div>
+            <div class="btn_box">
+              <button type="button" class="btn_save">저장하기</button>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="form_box">
+          <label class="sub_title">ecmascript</label>
+          <p class="main_title">클래스를 대표할 수 있는 제목을 추가해주세요.</p>
+          <div class="toggle_area 222">
+            <div class="info_area">
+              <div class="input_box">
+                <input type="text" name="textForm" onkeyup="alll(this)" autocomplete="off" value="" maxlength="25">
+                <p><span class="textLength">0</span> / 25</p>
+              </div>
+            </div>
+            <div class="btn_box">
+              <button type="button" class="btn_save">저장하기</button>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="form_box">
+          <label class="sub_title">ecmascript</label>
+          <p class="main_title">클래스를 대표할 수 있는 제목을 추가해주세요.</p>
+          <div class="toggle_area 333">
+            <div class="info_area">
+              <div class="input_box">
+                <input type="text" name="textForm" onkeyup="alll(this)" autocomplete="off" value="" maxlength="25">
+                <p><span class="textLength">0</span> / 25</p>
+              </div>
+            </div>
+            <div class="btn_box">
+              <button type="button" class="btn_save">저장하기</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    // form_box 클릭시 OPEN
+    // btn_box의 버튼 클릭시 CLOSE
+    (function () {
+      var formBox = document.querySelectorAll('.form_box');
+
+      for (var i = 0; i < formBox.length; i++) {
+        formBox[i].addEventListener('click', function () {
+          var toggleArea = this.querySelector('.toggle_area');
+          toggleArea.classList.add('active');
+        });
+      }
+
+      var btnSave = document.querySelectorAll('.btn_save');
+
+      for (var i = 0; i < btnSave.length; i++) {
+        btnSave[i].addEventListener('click', function (e) {
+          // e.stopImmediatePropagation();
+          e.stopPropagation();
+          this.closest('.toggle_area').classList.remove('active');
+        });
+      }
+    })();
+
+
+    // 글자수 실시간 체크 및 제한
+    document.querySelectorAll('[name=textForm]').forEach(function (item) {
+      item.addEventListener('keydown', alll)
+    })
+
+    function alll() {
+      if (this.value.length <= this.maxLength) {
+        this.nextElementSibling.innerHTML = this.value.length + " / " + this.maxLength;
+      }
+    }
+  </script>
+</body>
+
+</html>

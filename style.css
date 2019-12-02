@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: '맑은 고딕', sans-serif;
+  color: #3d3d3d;
+  line-height: 1.5;
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  vertical-align: top;
+  appearance: none;
+  border-radius: 0;
+}
+
+dd {
+  -webkit-margin-start: 0;
+}
+
+ul {
+  -webkit-padding-start: 0;
+  list-style-position: inside;
+}
+
+span {
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+b {
+    font-size: inherit;
+    color: inherit;
+}
+
+br {
+  line-height: inherit;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ======================== */
+
+body {
+  background: #eee;
+}
+
+hr {
+  margin: 0px;
+  border-bottom: 1px solid rgb(221, 224, 226);
+}
+
+.inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.propose_wrapper {
+  padding: 50px 10%;
+  background: #555;
+}
+
+.propose_wrapper .form_box {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 25px;
+  overflow: hidden;
+  background: #fff;
+  /* transition: visibility 0s linear 330ms, opacity 330ms linear 0s; */
+  /* animation: slide-down .3s ease-out; */
+}
+
+.propose_wrapper .form_box .toggle_area {
+  width: 100%;
+  transition: all .5s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;  
+}
+
+.propose_wrapper .form_box .toggle_area.active {
+  opacity: 1;
+  height: auto;
+}
+
+.propose_wrapper .form_box .sub_title {
+  display: inline-block;
+  margin: 0px 0px 5px;
+  font-size: 12px;
+  color: #aaafb3;
+}
+
+.propose_wrapper .form_box .main_title {
+  margin: 0;
+  font-size: 14px;
+  color: #616566;
+}
+
+.propose_wrapper .form_box .info_area {
+  margin-top: 15px;
+}
+
+.propose_wrapper .form_box .info_area .input_box input {
+  width: 100%;
+  height: 48px;
+  margin: 0px;
+  padding: 0px 16px;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: -0.2px;
+  background-color: white;
+  color: #3e4042;
+  border: 1px solid #cdd1d4;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.propose_wrapper .form_box .info_area .input_box input:focus {
+  outline: none;
+  border-color: #3e4042;
+}
+
+.propose_wrapper .form_box .info_area .input_box p {
+  margin: 5px 0px 0px;
+  font-size: 11px;
+  color: #858a8d;
+}
+
+.propose_wrapper .form_box .btn_box {
+  text-align: right;
+}
+
+.propose_wrapper .form_box .btn_box button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #000;
+  box-shadow: rgba(41, 42, 43, 0.16) 0px 1px 3px -1px;
+  border-radius: 5px;
+}

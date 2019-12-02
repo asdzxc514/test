@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FLEX</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<style>
+    body {
+        background-image: -webkit-linear-gradient(190deg, #f4bcbe 0%, #c5eaf7 100%);
+        background-image: linear-gradient(260deg, #f4bcbe 0%, #c5eaf7 100%);
+    }
+
+    .flex-wrap { position: absolute; left: 0; right: 0; bottom: 0; top: 0; width: 70%; margin: 0 auto; } 
+    .flex-box { float: left; width: calc(100%/3 - 5px); min-height: 280px; padding: 30px 10px; background: #f7f7f7; margin: 2.5px; }
+
+    .code-box { display: flex; min-height: 118px; } 
+    .code-box:last-of-type { margin-left: 20px; } 
+    .code-box .class-name { font-size: 16px; font-weight: bold; } 
+    .code-box .class-css { padding-left: 5px; font-size: 12px; }
+
+    .items { min-height: 100px; border: 1px solid #767676; } 
+    .item { height: 30px; padding: 3px; margin: 1px; background: #000; color: #fff; border-radius: 3px; }
+
+
+
+    .flex-box1 .items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .flex-box2 .items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flex-box3 .items {
+        display: flex;
+        justify-content: center;
+    }
+
+    .flex-box4 .items {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+
+    }
+
+    .flex-box5 .items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
+
+<body>
+
+    <div class="flex-wrap">
+
+        <div style="display: flex; justify-content: space-evenly; padding: 30px; background: #fff; margin-bottom: 30px;">
+            <div>
+                <b>flex container 속성</b><br>
+                flex-direction<br>
+                flex-wrap<br>
+                justify-content<br>
+                align-items<br>
+                align-content
+            </div>
+
+            <div>
+                <b>flex item 속성</b><br>
+                flex<br>
+                flex-grow<br>
+                flex-shrink<br>
+                flex-basis<br>
+                order
+            </div>
+        </div>
+
+        <div class="flex-box flex-box1">
+            <div class="code-box">
+                <div>
+                    <p class="class-name">.items</p>
+                    <p class="class-css">
+                        display: flex;<br>
+                        flex-direction: row;<br>
+                        justify-content: space-between;
+                    </p>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item"><span>Item1</span></div>
+                <div class="item"><span>Item2</span></div>
+                <div class="item"><span>Item3</span></div>
+            </div>
+        </div>
+        <div class="flex-box flex-box2">
+            <div class="code-box">
+                <div>
+                    <p class="class-name">.items</p>
+                    <p class="class-css">
+                        display: flex;<br>
+                        justify-content: center;<br>
+                        align-items: center;
+                    </p>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item"><span>Item1</span></div>
+                <div class="item"><span>Item2</span></div>
+                <div class="item"><span>Item3</span></div>
+            </div>
+        </div>
+        <div class="flex-box flex-box3">
+            <div class="code-box">
+                <div>
+                    <p class="class-name">.items</p>
+                    <p class="class-css">
+                        display: flex;<br>
+                        justify-content: center;
+                    </p>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item"><span>Item1</span></div>
+                <div class="item"><span>Item2</span></div>
+                <div class="item"><span>Item3</span></div>
+            </div>
+        </div>
+
+        <div class="flex-box flex-box4">
+            <div class="code-box">
+                <div>
+                    <p class="class-name">.items</p>
+                    <p class="class-css">
+                        display: flex;<br>
+                        flex-direction: column;<br>
+                        align-items: baseline;
+                    </p>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item"><span>Item1</span></div>
+                <div class="item"><span>Item2</span></div>
+                <div class="item"><span>Item3</span></div>
+            </div>
+        </div>
+
+        <div class="flex-box flex-box5">
+            <div class="code-box">
+                <div>
+                    <p class="class-name">.items</p>
+                    <p class="class-css">
+                        display: flex;<br>
+                        flex-direction: column;<br>
+                        justify-content: center;<br>
+                        align-items: center;
+                    </p>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item"><span>Item1</span></div>
+                <div class="item"><span>Item2</span></div>
+                <div class="item"><span>Item3</span></div>
+            </div>
+        </div>
+
+
+        <div class="flex-nav">
+
+        </div>
+
+    </div>
+    <!-- // flex-wrap -->
+
+<script>
+
+    
+    var classCssEl = document.querySelectorAll('.class-css');
+
+    classCssEl.forEach(function(classCssEl){
+        classCssEl.addEventListener( "click", function(){
+            console.log(this.innerText);
+    
+            var tempElem = document.createElement('textarea');
+            tempElem.value = this.innerText;  
+            document.body.appendChild(tempElem);
+
+            tempElem.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempElem);
+        });
+    });
+
+
+
+</script>
+</body>
+
+</html>
