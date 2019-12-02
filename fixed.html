@@ -11,7 +11,7 @@
 </head>
 
 <style>
-    /* html, body { position: fixed; overflow: hidden; } */
+    html, body { height: 100%; overflow: hidden; }
 
     body {        
         background: #fff;
@@ -40,7 +40,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: #484848;
+        background: ##ff5c5c;
         color: #fff;
         z-index: 5;
     }
@@ -61,7 +61,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: #484848;
+        background: ##ff5c5c;
         z-index: 5;
     }
 
@@ -120,12 +120,9 @@
     </div>
 
     <script>
-        function preventDefault(event){
+        document.ontouchmove = function(event){
             event.preventDefault();
-        };
-
-        document.addEventListener("touchmove", preventDefault, false);
-
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
