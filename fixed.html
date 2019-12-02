@@ -42,7 +42,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: red;
+        background: black;
         color: #fff;
         z-index: 5;
     }
@@ -63,7 +63,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: red;
+        background: black;
         z-index: 5;
     }
 
@@ -123,7 +123,8 @@
 
             textareaEl.addEventListener('focus', function (e) {
                 
-                window.scrollTo(0, 0);
+                window.addEventListener('scroll', function(){ window.scrollTo(0, 0) });
+
                 document.body.classList.add('keyboard');                
                 
                 window.innerHeight = window.innerHeight - 250;
@@ -158,14 +159,6 @@
         var chatHead = document.querySelector('.chat-head');
         var chatBody = document.querySelector('.chat-body');
         var chatFoot = document.querySelector('.chat-foot');
-
-
-
-        // window.addEventListener('scroll', noScroll);
-
-        // function noScroll() {
-        //     window.scrollTo(0, 0);
-        // }
 
 
         window.onload = function () {
