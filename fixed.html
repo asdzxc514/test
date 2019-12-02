@@ -62,7 +62,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: gray;
+        background: orange;
         z-index: 5;
     }
 
@@ -139,9 +139,7 @@
 
         if (document.body.classList == 'keyborad') {
             window.addEventListener('scroll', function(e){ 
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
+                window.scrollTo(0,0);
             });
         }
 
