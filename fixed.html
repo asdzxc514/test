@@ -125,8 +125,7 @@
                 document.body.classList.add('keyboard');
                 
                 window.innerHeight = window.innerHeight - 250;
-                screen.height = window.innerHeight;
-                window.outerHeight = window.innerHeight;
+                chatWrap.style.overflow = hidden;
 
                 setTimeout(function () {
                     chatBody.scrollTop = chatBody.scrollHeight;
@@ -137,8 +136,7 @@
             textareaEl.addEventListener('blur', function (e) {
                 document.body.classList.remove('keyboard');
                 window.innerHeight = window.innerHeight + 250;
-                screen.height = window.innerHeight;
-                window.outerHeight = window.innerHeight;
+                chatWrap.style.overflow = auto;
             });
         });
 
