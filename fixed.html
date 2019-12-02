@@ -11,19 +11,72 @@
 </head>
 
 <style>
-    body { background: #fff; font-size: 14px; }
-    .chat-wrap > div { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
-    .chat-wrap > div div { position: absolute; left: 0; width: 100%; padding-left: 10px; padding-right: 10px;}
+    body {
+        background: #fff;
+        font-size: 14px;
+    }
 
-    .chat-head { top: 0; height: 50px; line-height: 50px; vertical-align: middle; text-align: center; background: #767676; color: #fff; z-index: 5; }
-    .chat-body { top: 50px; bottom: 50px; padding: 15px 0; background: #fff7f7; overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 4; }
-    .chat-foot { bottom: 0; min-height: 50px; line-height: 50px; vertical-align: middle; background: #767676; z-index: 5; }
+    .chat-wrap>div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
-    textarea { width: 100%; height: 20px; min-height: 20px; max-height: 100px; background: #fff; vertical-align: middle; font-family: sans-serif, "맑은 고딕"; font-size: 16px; }
+    .chat-wrap>div div {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .chat-head {
+        top: 0;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle;
+        text-align: center;
+        background: #767676;
+        color: #fff;
+        z-index: 5;
+    }
+
+    .chat-body {
+        top: 50px;
+        bottom: 50px;
+        padding: 15px 0;
+        background: #fff7f7;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 4;
+    }
+
+    .chat-foot {
+        bottom: 0;
+        min-height: 50px;
+        line-height: 50px;
+        vertical-align: middle;
+        background: #767676;
+        z-index: 5;
+    }
+
+    textarea {
+        width: 100%;
+        height: 20px;
+        min-height: 20px;
+        max-height: 100px;
+        background: #fff;
+        vertical-align: middle;
+        font-family: sans-serif, "맑은 고딕";
+        font-size: 16px;
+    }
 
 
-    /* .safari.keyboard .app-container { bottom: 270px; } */
-
+    .safari.keyboard .app-container {
+        bottom: 250px;
+    }
 </style>
 
 <body>
@@ -33,81 +86,125 @@
 
             <div class="chat-head">상단 <span></span></div>
             <div class="chat-body">
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text 
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text 
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text 
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text sample
+                text sample text sample text sample text sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text sample text sample text sample text
             </div>
             <div class="chat-foot">
-                <textarea name="comment" id="comment" style="overflow: hidden;" oninput="textareaHeight(this)" placeholder="메세지를 입력해주세요."></textarea>
+                <textarea name="comment" id="comment" style="overflow: hidden;" oninput="textareaHeight(this)"
+                    placeholder="메세지를 입력해주세요."></textarea>
             </div>
 
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setPlatformInfo();
+            var textareaEl = document.querySelector('textarea');
+            if (textareaEl) {
+                textareaEl.addEventListener('focus', function (e) {
+                    document.body.classList.add('keyboard');
+                    setTimeout(function () {
+                        window.scrollTo(0, 0);
+                    }, 200);
+                });
 
-<script>
-    
-    var g_resize_timer = null;
+                textareaEl.addEventListener('blur', function (e) {
+                    document.body.classList.remove('keyboard');
+                });
+            }
+        });
 
-    var chatWrap = document.querySelector('.chat-wrap');
-    var chatHead = document.querySelector('.chat-head');
-    var chatBody = document.querySelector('.chat-body');
-    var chatFoot = document.querySelector('.chat-foot');
-    var textareaEl = document.querySelector('textarea');
-    
-    
+        function setPlatformInfo() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf('safari') != -1) {
+                if (ua.indexOf('chrome') > -1) {
+                    document.body.classList.add('chrome');
+                } else {
+                    document.body.classList.add('safari');
+                }
+            }
+        }
+    </script>
 
-    window.onload = function(){
+    <script>
+        var g_resize_timer = null;
 
-        chatBodyResize();
-        chatBody.scrollTop = chatBody.scrollHeight;
-
-        clearInterval(g_resize_timer);
-        g_resize_timer = setInterval(chatBodyResize, 300);
-
-    };
-
-
-    window.onresize = function(){
-        chatWrap.style.height = window.innerHeight + 'px';
-
-        chatBodyResize();
-        chatBody.scrollTop = chatBody.scrollHeight;
-    };
-    
+        var chatWrap = document.querySelector('.chat-wrap');
+        var chatHead = document.querySelector('.chat-head');
+        var chatBody = document.querySelector('.chat-body');
+        var chatFoot = document.querySelector('.chat-foot');
 
 
 
-    // textarea 높이 조절
-    function textareaHeight(obj) {
 
-        setTimeout(function () {
-            obj.style.height = "20px";
-            obj.style.height = (obj.scrollHeight) + "px"; 
+        window.onload = function () {
+
             chatBodyResize();
-        }, 0);
+            chatBody.scrollTop = chatBody.scrollHeight;
 
-    }
+            clearInterval(g_resize_timer);
+            g_resize_timer = setInterval(chatBodyResize, 300);
 
-    function chatBodyResize() {
-        chatHead.childNodes[1].innerText = window.innerHeight;
+        };
 
-        chatWrap.style.height = window.innerHeight;
 
-        textareaEl.addEventListener("focus", function(){
-            chatBody.style.bottom = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) - 250 + "px";
-        });
+        window.onresize = function () {
+            chatWrap.style.height = window.innerHeight + 'px';
 
-        textareaEl.addEventListener("blur", function(){
-            chatBody.style.bottom = document.body.offsetHeight - ( chatHead.offsetHeight + chatFoot.offsetHeight ) + "px";
-        });
-    }
+            chatBodyResize();
+            chatBody.scrollTop = chatBody.scrollHeight;
+        };
 
-    
 
-    
 
-</script>
+
+        // textarea 높이 조절
+        function textareaHeight(obj) {
+
+            setTimeout(function () {
+                obj.style.height = "20px";
+                obj.style.height = (obj.scrollHeight) + "px";
+                chatBodyResize();
+            }, 0);
+
+        }
+
+        function chatBodyResize() {
+            chatHead.childNodes[1].innerText = window.innerHeight;
+
+            chatWrap.style.height = window.innerHeight;
+
+            // textareaEl.addEventListener("focus", function () {
+            //     chatBody.style.bottom = document.body.offsetHeight - (chatHead.offsetHeight + chatFoot
+            //         .offsetHeight) - 250 + "px";
+            // });
+
+            // textareaEl.addEventListener("blur", function () {
+            //     chatBody.style.bottom = document.body.offsetHeight - (chatHead.offsetHeight + chatFoot
+            //         .offsetHeight) + "px";
+            // });
+        }
+    </script>
 </body>
 
 </html>
