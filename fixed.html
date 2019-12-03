@@ -115,7 +115,7 @@
     </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
     var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
 
@@ -135,21 +135,37 @@
 
             var textareaEl = document.querySelector('textarea');
 
-            textareaEl.addEventListener('focus', function (e) {
+            $('textarea').off('keyup').on('keyup', function(event) {
 
-                document.body.classList.add('keyboard');                
+                if (event.keyCode==13 && (event.shiftKey==false && event.ctrlKey==false)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    } else if (event.keyCode==13 && event.ctrlKey==true) {
+                    $('textarea').val($('textarea').val()+"\r\n");
+                    $('textarea').focus();
+                }
+
+                var top = $('textarea').prop('scrollHeight')
+                $('textarea').scrollTop(top);
+
+            });
+
+            // textareaEl.addEventListener('focus', function (e) {
+
+            //     document.body.classList.add('keyboard');
                 
-                window.innerHeight = window.innerHeight - 250;
+            //     window.innerHeight = window.innerHeight - 250;
 
-                setTimeout(function () {
-                    chatBody.scrollTop = chatBody.scrollHeight;                    
-                }, 200);
-            });
+            //     setTimeout(function () {
+            //         chatBody.scrollTop = chatBody.scrollHeight;                    
+            //     }, 200);
+            // });
 
-            textareaEl.addEventListener('blur', function (e) {
-                document.body.classList.remove('keyboard');
-                window.innerHeight = window.innerHeight + 250;
-            });
+            // textareaEl.addEventListener('blur', function (e) {
+            //     document.body.classList.remove('keyboard');
+            //     window.innerHeight = window.innerHeight + 250;
+            // });
         });
     } 
 
