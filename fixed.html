@@ -116,6 +116,8 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
+
+    
     var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
 
     if (varUA.match('android') != null) { 
@@ -155,6 +157,14 @@
                 document.body.classList.add('keyboard');
                 
                 window.innerHeight = window.innerHeight - 250;
+
+                $(window).on('scroll touchmove mousewheel', function(e){
+
+                    e.preventDefault();
+                    e.stopPropagation(); 
+                    return false;
+
+                });
 
                 setTimeout(function () {
                     chatBody.scrollTop = chatBody.scrollHeight;                    
@@ -225,7 +235,7 @@
     }
 
     function chatBodyResize() {
-        chatHead.childNodes[1].innerText = window.innerHeight+ ", " +window.outerHeight+ ", " +screen.height;
+        chatHead.childNodes[1].innerText = window.innerHeight+ ", " + $(window).height() + ", " +screen.height;
         chatWrap.style.height = window.innerHeight;
         chatBody.style.bottom = chatFoot.offsetHeight + "px";
     }
