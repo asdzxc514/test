@@ -41,7 +41,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: darkgoldenrod;
+        background: mediumpurple;
         color: #fff;
         z-index: 5;
     }
@@ -62,7 +62,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: darkgoldenrod;
+        background: mediumpurple;
         z-index: 5;
     }
 
@@ -134,23 +134,23 @@
             // });
 
 
-            var textareaEl = document.querySelector('textarea');
+            // var textareaEl = document.querySelector('textarea');
 
-            textareaEl.addEventListener('focus', function (e) {
+            // textareaEl.addEventListener('focus', function (e) {
 
-                document.body.classList.add('keyboard');                
+            //     document.body.classList.add('keyboard');                
                 
-                window.innerHeight = window.innerHeight - 250;
+            //     window.innerHeight = window.innerHeight - 250;
 
-                setTimeout(function () {
-                    chatBody.scrollTop = chatBody.scrollHeight;                    
-                }, 200);
-            });
+            //     setTimeout(function () {
+            //         chatBody.scrollTop = chatBody.scrollHeight;                    
+            //     }, 200);
+            // });
 
-            textareaEl.addEventListener('blur', function (e) {
-                document.body.classList.remove('keyboard');
-                window.innerHeight = window.innerHeight + 250;
-            });
+            // textareaEl.addEventListener('blur', function (e) {
+            //     document.body.classList.remove('keyboard');
+            //     window.innerHeight = window.innerHeight + 250;
+            // });
         });
     } 
 
