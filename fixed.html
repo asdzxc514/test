@@ -134,7 +134,7 @@
 
             var textareaEl = document.querySelector('textarea');
 
-            $('textarea').off('keyup').on('keyup', function(event) {
+            $('textarea').on('keyup', function(event) {
 
                 if (event.keyCode==13 && (event.shiftKey==false && event.ctrlKey==false)) {
                     event.preventDefault();
@@ -150,22 +150,22 @@
 
             });
 
-            // textareaEl.addEventListener('focus', function (e) {
+            textareaEl.addEventListener('focus', function (e) {
 
-            //     document.body.classList.add('keyboard');
+                document.body.classList.add('keyboard');
                 
-            //     window.innerHeight = window.innerHeight - 250;
+                window.innerHeight = window.innerHeight - 250;
 
-            //     setTimeout(function () {
-            //         chatBody.scrollTop = chatBody.scrollHeight;                    
-            //     }, 200);
-            // });
+                setTimeout(function () {
+                    chatBody.scrollTop = chatBody.scrollHeight;                    
+                }, 200);
+            });
 
-            // textareaEl.addEventListener('blur', function (e) {
-            //     document.body.classList.remove('keyboard');
-            //     window.innerHeight = window.innerHeight + 250;
-            // });
-        // });
+            textareaEl.addEventListener('blur', function (e) {
+                document.body.classList.remove('keyboard');
+                window.innerHeight = window.innerHeight + 250;
+            });
+        });
     } 
 
     function setPlatformInfo() {
