@@ -128,6 +128,12 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
+
+            window.addEventListener('scroll', function(e){ 
+                window.scrollTo(0,0);
+            });
+
+            
             var textareaEl = document.querySelector('textarea');
 
             textareaEl.addEventListener('focus', function (e) {
@@ -146,13 +152,6 @@
                 window.innerHeight = window.innerHeight + 250;
             });
         });
-
-        if (document.body.classList == 'keyborad') {
-            window.addEventListener('scroll', function(e){ 
-                window.scrollTo(0,0);
-            });
-        }
-
     } 
 
     function setPlatformInfo() {
