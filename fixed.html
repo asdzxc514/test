@@ -95,7 +95,7 @@
             text sample text sample text sample text sample text sample text sample text sample text sample text
             sample text sample text sample text sample text sample text sample text sample text sample text
             sample text sample text sample text sample text sample text sample text sample text sample text sample
-            text sample text sample text sample text sample text sample text sample text sample text sample text
+            text sample text sample text sample text sample text sample text sample text sample text sample text<br><br>
             sample text sample text sample text sample text sample text sample text sample text sample text sample
             text sample text sample text sample text sample text sample text sample text sample text sample text
             sample text sample text sample text sample text sample text sample text sample text sample text sample
@@ -115,7 +115,17 @@
         </div>
     </div>
 
-    <script>
+
+
+<script>
+    var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
+
+    if (varUA.match('android') != null) { 
+        //안드로이드 일때 처리
+
+    } else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
+        //IOS 일때 처리
+
         document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
             var textareaEl = document.querySelector('textarea');
@@ -143,67 +153,69 @@
             });
         }
 
-        function setPlatformInfo() {
-            var ua = navigator.userAgent.toLowerCase();
-            if (ua.indexOf('safari') != -1) {
-                if (ua.indexOf('chrome') > -1) {
-                    document.body.classList.add('chrome');
-                } else {
-                    document.body.classList.add('safari');
-                }
+    } 
+
+    function setPlatformInfo() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf('safari') != -1) {
+            if (ua.indexOf('chrome') > -1) {
+                document.body.classList.add('chrome');
+            } else {
+                document.body.classList.add('safari');
             }
         }
-    </script>
+    }
+</script>
 
-    <script>
-        var g_resize_timer = null;
+<script>
+    var g_resize_timer = null;
 
-        var chatWrap = document.querySelector('.chat-wrap');
-        var chatHead = document.querySelector('.chat-head');
-        var chatBody = document.querySelector('.chat-body');
-        var chatFoot = document.querySelector('.chat-foot');
+    var chatWrap = document.querySelector('.chat-wrap');
+    var chatHead = document.querySelector('.chat-head');
+    var chatBody = document.querySelector('.chat-body');
+    var chatFoot = document.querySelector('.chat-foot');
 
 
-        window.onload = function () {
+    window.onload = function () {
 
+        chatBodyResize();
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        clearInterval(g_resize_timer);
+        g_resize_timer = setInterval(chatBodyResize, 300);
+
+    };
+
+
+    window.onresize = function () {
+        chatWrap.style.height = window.innerHeight + 'px';
+
+        chatBodyResize();
+        chatBody.scrollTop = chatBody.scrollHeight;
+    };
+
+
+
+
+    // textarea 높이 조절
+    function textareaHeight(obj) {
+
+        setTimeout(function () {
+            obj.style.height = "20px";
+            obj.style.height = (obj.scrollHeight) + "px";
             chatBodyResize();
-            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 0);
 
-            clearInterval(g_resize_timer);
-            g_resize_timer = setInterval(chatBodyResize, 300);
+    }
 
-        };
-
-
-        window.onresize = function () {
-            chatWrap.style.height = window.innerHeight + 'px';
-
-            chatBodyResize();
-            chatBody.scrollTop = chatBody.scrollHeight;
-        };
+    function chatBodyResize() {
+        chatHead.childNodes[1].innerText = window.innerHeight+ ", " +window.outerHeight+ ", " +screen.height;
+        chatWrap.style.height = window.innerHeight;
+        chatBody.style.bottom = chatFoot.offsetHeight + "px";
 
 
-
-
-        // textarea 높이 조절
-        function textareaHeight(obj) {
-
-            setTimeout(function () {
-                obj.style.height = "20px";
-                obj.style.height = (obj.scrollHeight) + "px";
-                chatBodyResize();
-            }, 0);
-
-        }
-
-        function chatBodyResize() {
-            chatHead.childNodes[1].innerText = window.innerHeight+ ", " +window.outerHeight+ ", " +screen.height;
-
-            chatWrap.style.height = window.innerHeight;
-
-            chatBody.style.bottom = chatFoot.offsetHeight + "px";
-        }
-    </script>
+    }
+</script>
 </body>
 
 </html>
