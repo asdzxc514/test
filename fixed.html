@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>FIXED</title>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -41,7 +40,7 @@
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        background: black;
+        background: orange;
         color: #fff;
         z-index: 5;
     }
@@ -62,7 +61,7 @@
         min-height: 50px;
         line-height: 50px;
         vertical-align: middle;
-        background: black;
+        background: orange;
         z-index: 5;
     }
 
@@ -87,12 +86,10 @@
     <div class="chat-wrap">
         <div class="chat-head">상단 <span></span></div>
         <div class="chat-body">
-            <!-- sample text sample text sample text sample text sample text sample text sample text sample text sample
+            sample text sample text sample text sample text sample text sample text sample text sample text sample
             text sample text sample text sample text sample text sample text sample text sample text sample text
             sample text sample text sample text sample text sample text sample text sample text sample text sample
-            text sample text sample text sample text sample text sample text sample text sample text sample text -->
-            <input type="text" placeholder="input">
-            <textarea cols="30" rows="10" placeholder="txt"></textarea>
+            text sample text sample text sample text sample text sample text sample text sample text sample text
             sample text sample text sample text sample text sample text sample text sample text sample text sample
             text sample text sample text sample text sample text sample text sample text sample text sample text
             sample text sample text sample text sample text sample text sample text sample text sample text
@@ -112,7 +109,7 @@
             sample text sample text sample text sample text sample text sample text sample text sample text
         </div>
         <div class="chat-foot">
-            <!-- <textarea name="comment" id="comment" style="overflow: hidden;" oninput="textareaHeight(this)" placeholder="메세지를 입력해주세요."></textarea> -->
+            <textarea name="comment" id="comment" style="overflow: hidden;" oninput="textareaHeight(this)" placeholder="메세지를 입력해주세요."></textarea>
         </div>
     </div>
 
@@ -127,7 +124,7 @@
     } else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
         //IOS 일때 처리
 
-        document.addEventListener('DOMContentLoaded', () => {
+        // document.addEventListener('DOMContentLoaded', () => {
             setPlatformInfo();
 
             // window.addEventListener('scroll', function(e){ 
@@ -168,7 +165,7 @@
             //     document.body.classList.remove('keyboard');
             //     window.innerHeight = window.innerHeight + 250;
             // });
-        });
+        // });
     } 
 
     function setPlatformInfo() {
@@ -232,9 +229,9 @@
         chatHead.childNodes[1].innerText = window.innerHeight+ ", " +window.outerHeight+ ", " +screen.height;
         chatWrap.style.height = window.innerHeight;
         chatBody.style.bottom = chatFoot.offsetHeight + "px";
-
-
     }
+
+
 </script>
 </body>
 
